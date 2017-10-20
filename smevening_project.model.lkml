@@ -6,6 +6,10 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
+
+#commit test
+
+
 explore: github_nested_copy {
   join: github_nested_copy__actor_attributes {
     view_label: "Github Nested Copy: Actor Attributes"
