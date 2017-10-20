@@ -1,3 +1,6 @@
+#adding comment after deleting branch
+
+
 connection: "mybqtets"
 
 # include all the views
