@@ -273,8 +273,16 @@ view: sffd_service_calls {
     sql: ${TABLE}.zipcode_of_incident ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: []
+    filters: {
+      field:  sffd_service_calls.watch_week
+      value: "yesterday"
+    }
   }
+
+
+
 }
