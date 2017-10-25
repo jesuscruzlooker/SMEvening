@@ -1,6 +1,12 @@
+#adding comment after deleting branch
+
+
 connection: "mybqtets"
 
 # include all the views
+
+
+#new comment
 include: "*.view"
 
 # include all the dashboards
@@ -163,13 +169,31 @@ explore: github_nested_copy {
   }
 }
 
-explore: municipal_sf_requests {}
+explore: municipal_sf_requests {
+
+
+}
 
 explore: neighborhood_pd {}
 
 explore: neighborhood_zip {}
 
-explore: sffd_service_calls {}
+explore: sffd_service_calls {
+  conditionally_filter: {
+
+    filters: {
+      field: call_number
+      value: "2"
+    }
+    filters: {
+      field: station_area
+      value: "1"
+    }
+
+    unless: [final_priority]
+
+  }
+}
 
 explore: sfpd_incidents {}
 
