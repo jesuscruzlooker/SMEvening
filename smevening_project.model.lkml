@@ -4,6 +4,9 @@
 connection: "mybqtets"
 
 # include all the views
+
+
+#new comment
 include: "*.view"
 
 # include all the dashboards
