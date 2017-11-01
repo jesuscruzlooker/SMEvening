@@ -277,10 +277,7 @@ view: sffd_service_calls {
   measure: count {
     type: count
     drill_fields: []
-    filters: {
-      field:  sffd_service_calls.watch_week
-      value: "yesterday"
-    }
+
   }
 
 
