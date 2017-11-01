@@ -179,20 +179,20 @@ explore: neighborhood_pd {}
 explore: neighborhood_zip {}
 
 explore: sffd_service_calls {
-  conditionally_filter: {
-
-    filters: {
-      field: call_number
-      value: "2"
-    }
-    filters: {
-      field: station_area
-      value: "1"
-    }
-
-    unless: [final_priority]
-
-  }
+#   conditionally_filter: {
+#
+#     filters: {
+#       field: call_number
+#       value: "2"
+#     }
+#     filters: {
+#       field: station_area
+#       value: "1"
+#     }
+#
+#     unless: [final_priority]
+#
+#   }
 }
 
 explore: sfpd_incidents {}
