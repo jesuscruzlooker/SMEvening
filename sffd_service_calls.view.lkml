@@ -3,7 +3,8 @@ view: sffd_service_calls {
 
   dimension: address {
     type: string
-    sql: ${TABLE}.address ;;
+    sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;
+    html: <a href="{{ value }}">link text</a> ;;
   }
 
   dimension: als_unit {
@@ -23,12 +24,15 @@ view: sffd_service_calls {
       year
     ]
     sql: ${TABLE}.available_timestamp ;;
+    datatype: datetime
   }
 
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
   }
+
+
 
   dimension: box {
     type: string
@@ -58,11 +62,40 @@ view: sffd_service_calls {
   dimension: call_number {
     type: number
     sql: ${TABLE}.call_number ;;
+    html:  %{{value | times: 10000000 }} ;;
   }
 
   dimension: call_type {
     type: string
     sql: ${TABLE}.call_type ;;
+  }
+
+
+  dimension: call_type_test {
+    type: string
+    sql: CASE WHEN {% condition sffd_service_calls.call_type %} sffd_service_calls.call_type {% endcondition %} then sffd_service_calls.call_number  end;;
+  }
+
+
+  dimension: call_type_suggest {
+    sql: ${TABLE}.call_type;;
+    suggest_explore: sffd_service_calls
+    suggest_dimension: sffd_service_calls.call_number
+  }
+
+  dimension: call_case {
+    type: number
+    sql:  ${call_type} ;;
+    html:  {% if value == 1 %}
+    <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
+    {% else %}
+    <p><img src="http://findicons.com/files/icons/573/must_have/48/no.png" height=20 width=20></p>
+    {% endif %};;
+  }
+
+  dimension: testing_filter {
+    type: number
+    sql: {% if sffd_service_calls.call_number._is_filtered %} ${call_type} {% endif %};;
   }
 
   dimension: call_type_group {
@@ -277,6 +310,7 @@ view: sffd_service_calls {
   measure: count {
     type: count
     drill_fields: []
+    html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
 
   }
 

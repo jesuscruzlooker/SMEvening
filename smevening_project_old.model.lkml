@@ -195,6 +195,6 @@ explore: sffd_service_calls {
 #   }
 }
 
-explore: sfpd_incidents {}
+
 
 explore: zipcode_neighborhood_grp {}
