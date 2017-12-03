@@ -12,6 +12,28 @@ view: sffd_service_calls {
     sql: ${TABLE}.als_unit ;;
   }
 
+  dimension: als_unit02 {
+    type:  string
+    sql: ${TABLE}.als_unit;;
+  }
+
+  dimension: calltype_yn {
+    type: yesno
+    sql: ${TABLE}.call_type = 'Alarms' ;;
+  }
+
+  measure: calltype_Count{
+    type: count
+    filters: {
+      field: calltype_yn
+      value: "yes"
+    }
+  }
+
+
+
+
+
   dimension_group: available_timestamp {
     type: time
     timeframes: [
@@ -310,7 +332,11 @@ view: sffd_service_calls {
   measure: count {
     type: count
     drill_fields: []
-    html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
+    filters: {
+      field:  calltype_yn
+      value: "yes"
+    }
+    #html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
 
   }
 
