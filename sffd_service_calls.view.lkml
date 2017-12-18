@@ -49,6 +49,21 @@ view: sffd_service_calls {
     datatype: datetime
   }
 
+  dimension_group: available_timestamp2 {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: DATE(${TABLE}.available_timestamp) ;;
+    datatype: date
+  }
+
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
@@ -90,6 +105,22 @@ view: sffd_service_calls {
   dimension: call_type {
     type: string
     sql: ${TABLE}.call_type ;;
+  }
+
+  dimension: case_call {
+    case: {
+      when: {
+        sql: ${call_type} = "Administrative" ;;
+        label: "second label"
+
+      }
+      when: {
+        sql: ${call_type} = "Administrative" ;;
+        label: "first label"
+
+      }
+
+    }
   }
 
 
@@ -327,6 +358,18 @@ view: sffd_service_calls {
     type: string
     sql: ${TABLE}.zipcode_of_incident ;;
   }
+
+  measure: yesnotype {
+    type: yesno
+    sql: ${sum} > 12000 ;;
+  }
+
+  measure: sum {
+    type:  sum
+    sql: ${number_of_alarms} ;;
+  }
+
+
 
 
   measure: count {

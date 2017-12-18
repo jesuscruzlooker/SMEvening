@@ -2,6 +2,10 @@
 
 
 connection: "mybqtets"
+datagroup: mydatagroup {
+  max_cache_age: "5 minutes"
+  sql_trigger: SELECT 1 ;;
+}
 
 # include all the views
 
@@ -15,7 +19,32 @@ include: "*.dashboard"
 #pushing new test via list branch
 
 #commit test
+explore: testing_date {
+  join: admin_view {
+    relationship: one_to_one
+    sql_on:
 
+    {% if admin_view.sumvalue._in_query %}
+    test
+    {% elsif admin_view.count._in_query %}
+    secondtest
+    {% else %}
+    elsetest
+    {% endif %}
+    ;;
+  }
+}
+
+ explore: admin_view {
+   join: testing_date {
+    relationship: one_to_one
+    sql_on:
+
+      ${admin_view.sffd_service_calls_call_date_year} = ${testing_date.sffd_service_calls_call_date_year}
+
+ ;;
+   }
+ }
 
 explore: github_nested_copy {
   join: github_nested_copy__actor_attributes {
