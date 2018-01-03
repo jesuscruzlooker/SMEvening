@@ -371,6 +371,19 @@ view: sffd_service_calls {
 
 
 
+  measure: testingmeasure {
+#type: number
+#sql: ${TABLE}.pct_of_tot_sessions_30d_avg / ${TABLE}.pct_of_tot_sessions_30d_avg ;;
+  sql: round((.00100*${count}) - (${count}*1.2)/1.2121,3) ;;
+  html:
+  {% if value > 0 %}
+  <p><img src="https://findicons.com/files/icons/1018/pixelicious/32/up.png" height=10 width=10>{{ rendered_value }}</p>
+  {% else %}
+  <p><img src="https://findicons.com/files/icons/1688/web_blog/48/arrow_down.png" height=20 width=20>{{ rendered_value }}</p>
+  {% endif %}
+  ;;
+}
+
 
   measure: count {
     type: count
