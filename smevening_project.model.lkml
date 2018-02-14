@@ -76,3 +76,10 @@ explore: sffd_service_calls {
 
 
 explore: zipcode_neighborhood_grp {}
+
+explore: sfpd_incidents {
+  fields: [
+    ALL_FIELDS*,
+    -category_blank
+  ]
+}

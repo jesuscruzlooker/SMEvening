@@ -49,6 +49,10 @@ view: sffd_service_calls {
     datatype: datetime
   }
 
+  parameter: fielddate {
+    type: date
+  }
+
   dimension_group: available_timestamp2 {
     type: time
     timeframes: [
@@ -337,6 +341,10 @@ view: sffd_service_calls {
   dimension: unit_type {
     type: string
     sql: ${TABLE}.unit_type ;;
+    link: {
+      label: "unit label"
+      url: "https://localhost:9999/dashboards/9?Unit%20Type={{ _filters['sffd_service_calls.unit_type'] | url_encode }}&Unit%20Type%202={{ value }} "
+    }
   }
 
   dimension_group: watch {
@@ -395,6 +403,22 @@ view: sffd_service_calls {
     #html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
 
   }
+
+  measure: mysum_test {
+    type:  sum
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${number_of_alarms} ELSE NULL END ;;
+
+  }
+
+  measure: myavg_test {
+    type:  average
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${number_of_alarms} ELSE NULL END ;;
+    required_fields: [calltype_yn]
+  }
+
+
+
+
 
 
 
