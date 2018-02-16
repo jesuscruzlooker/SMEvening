@@ -31,6 +31,67 @@ view: sffd_service_calls {
   }
 
 
+  dimension: is_enrollment_measure {
+    hidden: yes
+    sql: 1 ;;
+  }
+
+  dimension: is_rated_measure {
+    hidden: yes
+    sql: 1 ;;
+  }
+
+
+  dimension: member_age {
+    view_label: "2. Dimensions"
+    group_label: "Demographics"
+    description: "Member age"
+    can_filter: no
+    type: number
+    sql:
+    {% if is_rated_measure._in_query == '1=1' or is_rated_measure._in_query == true %}
+      COALESCE(CAST(${TABLE}.call_number AS STRING), ${TABLE}.call_number)
+    {% else %}
+
+    ${TABLE}.call_number
+    {% endif %}
+      ;;
+  }
+
+  measure: member_average_age {
+    type: average
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${member_age}
+        ELSE NULL
+        END ;;
+  }
+
+
+
+  dimension: member_age_alternate {
+    view_label: "2. Dimensions"
+    group_label: "Demographics"
+    description: "Member age"
+#   can_filter: no
+    type: yesno
+    sql:
+        {% if is_rated_measure._in_query == '1=1' or is_rated_measure._in_query == true %}
+
+     ${battalion} = 'B03'
+      {% else %}
+      ${battalion} = 'B03'
+        {% endif %}
+
+      ;;
+  }
+
+  measure: member_average_age_alternate {
+    type: average
+    sql: ${TABLE}.call_number ;;
+    filters: {
+      field: member_age_alternate
+      value: "yes"
+    }
+  }
 
 
 
