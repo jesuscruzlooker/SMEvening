@@ -42,28 +42,71 @@ view: sffd_service_calls {
   }
 
 
+  measure: member_average_age {
+    type: average
+    sql:
+    {% if  battalion._in_query == true %}
+    in_query_true
+     {% else %}
+
+    else_condition
+    {% endif %}
+        ;;
+  }
+
   dimension: member_age {
+    type: number
+    sql:
+    {% if  battalion._in_query == true %}
+
+    in_query_true
+
+    {% else %}
+
+    else_condition
+    {% endif %}
+      ;;
+  }
+
+
+
+  measure: member_sum_age {
+    type: sum
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${dimension_field}
+        ELSE NULL
+        END ;;
+  }
+
+  measure: member_count_age {
+    type: count
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${dimension_field}
+        ELSE NULL
+        END ;;
+  }
+
+  measure: member_max_age {
+    type: max
+    sql: CASE WHEN ${battalion} = 'B03' THEN ${dimension_field}
+        ELSE NULL
+        END ;;
+  }
+
+
+  dimension: dimension_field {
     view_label: "2. Dimensions"
     group_label: "Demographics"
     description: "Member age"
     can_filter: no
     type: number
     sql:
-    {% if is_rated_measure._in_query == '1=1' or is_rated_measure._in_query == true %}
-      COALESCE(CAST(${TABLE}.call_number AS STRING), ${TABLE}.call_number)
-    {% else %}
+     {% if 1 == 0 %}
+     COALESCE(CAST(${TABLE}.call_number AS STRING), ${TABLE}.call_number)
 
-    ${TABLE}.call_number
-    {% endif %}
-      ;;
+      {% else %}
+      ${TABLE}.call_number
+        {% endif %} ;;
   }
 
-  measure: member_average_age {
-    type: average
-    sql: CASE WHEN ${battalion} = 'B03' THEN ${member_age}
-        ELSE NULL
-        END ;;
-  }
 
 
 

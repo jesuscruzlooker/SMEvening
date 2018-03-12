@@ -19,5 +19,14 @@ view: neighborhood_pd {
   measure: count {
     type: count
     drill_fields: []
+    link: {
+      label: "Why is this important"
+      url: "http://support.influitive.com/"
+      icon_url: "https://static.influitive.com/favicon.png"
+    }
+    html:
+    {% if 1 == 1 %} <a href ="https://www.google.com">{{rendered_value}}</a>
+    {% else %} <a href ="https://www.yahoo.com/">{{rendered_value}}</a>
+    {% endif %};;
   }
 }

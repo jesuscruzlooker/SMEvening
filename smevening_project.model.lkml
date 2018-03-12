@@ -57,6 +57,11 @@ explore: neighborhood_pd {}
 explore: neighborhood_zip {}
 
 explore: sffd_service_calls {
+  access_filter: {
+    field: sffd_service_calls.battalion
+    user_attribute: battalion
+
+  }
 #   conditionally_filter: {
 #
 #     filters: {

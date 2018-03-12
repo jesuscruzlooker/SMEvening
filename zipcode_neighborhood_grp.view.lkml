@@ -9,6 +9,7 @@ view: zipcode_neighborhood_grp {
   dimension: zipcode {
     type: zipcode
     sql: ${TABLE}.zipcode ;;
+    primary_key: yes
   }
 
   measure: count {
