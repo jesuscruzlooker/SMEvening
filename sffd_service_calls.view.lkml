@@ -1,5 +1,14 @@
 view: sffd_service_calls {
-  sql_table_name: sf_thesis.sffd_service_calls ;;
+  sql_table_name: sf_thesis.sffd_service_calls;;
+
+#   (SELECT * ,
+#
+#   CASE WHEN {% condition filter_test %} sffd_service_calls.station_area {% endcondition %} THEN 1 ELSE NULL END as columntest
+#   FROM
+#
+#
+#   sf_thesis.sffd_service_calls
+#   LIMIT 100)  ;;
 
   dimension: address {
     type: string
@@ -7,6 +16,13 @@ view: sffd_service_calls {
     html: <a href="{{ value }}">link text</a> ;;
   }
 
+  filter: filter_test {
+    type: string
+  }
+
+  dimension: columntest {
+    sql: ${TABLE}.columntest ;;
+  }
   dimension: als_unit {
     type: yesno
     sql: ${TABLE}.als_unit ;;
@@ -93,8 +109,6 @@ view: sffd_service_calls {
 
 
   dimension: dimension_field {
-    view_label: "2. Dimensions"
-    group_label: "Demographics"
     description: "Member age"
     can_filter: no
     type: number
@@ -111,8 +125,7 @@ view: sffd_service_calls {
 
 
   dimension: member_age_alternate {
-    view_label: "2. Dimensions"
-    group_label: "Demographics"
+
     description: "Member age"
 #   can_filter: no
     type: yesno
@@ -215,21 +228,21 @@ view: sffd_service_calls {
     sql: ${TABLE}.call_type ;;
   }
 
-  dimension: case_call {
-    case: {
-      when: {
-        sql: ${call_type} = "Administrative" ;;
-        label: "second label"
-
-      }
-      when: {
-        sql: ${call_type} = "Administrative" ;;
-        label: "first label"
-
-      }
-
-    }
-  }
+#   dimension: case_call {
+#     case: {
+#       when: {
+#         sql: ${call_type} = "Administrative" ;;
+#         label: "second label"
+#
+#       }
+#       when: {
+#         sql: ${call_type} = "Administrative" ;;
+#         label: "first label"
+#
+#       }
+#
+#     }
+#   }
 
 
   dimension: call_type_test {
