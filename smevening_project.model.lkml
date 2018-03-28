@@ -13,6 +13,8 @@ datagroup: mydatagroup {
 #new comment
 include: "*.view"
 
+#testing
+
 # include all the dashboards
 include: "*.dashboard"
 
@@ -51,6 +53,10 @@ explore: municipal_sf_requests {
 
 
 }
+explore: testing_extends {
+  view_name: neighborhood_zip
+  from: neighborhood_zip
+  }
 
 explore: neighborhood_pd {}
 
