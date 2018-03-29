@@ -101,19 +101,29 @@ include: "*.dashboard"
 #   ]
 # }
 
-explore: extended_sffd_explore {
-  extends: [sffd_service_calls]
-}
+# explore: sffd_service_calls {
+#   extends: [extended_sffd]
+#   from: sffd_service_calls
+#   view_name: sffd_service_calls
+# }
 
 explore: extended_sffd {
-
-  join: sffd_service_calls {
-    sql_on: ${extended_sffd.call_number}=${sffd_service_calls.call_number} ;;
-  }
-}
-
-explore: sffd_service_calls {
   view_name: sffd_service_calls
-  from: sffd_service_calls
-  hidden: yes
 }
+
+# explore: extended_sffd_explore {
+#   extends: [sffd_service_calls]
+# }
+#
+# explore: extended_sffd {
+#
+#   join: sffd_service_calls {
+#     sql_on: ${extended_sffd.call_number}=${sffd_service_calls.call_number} ;;
+#   }
+# }
+#
+# explore: sffd_service_calls {
+#   view_name: sffd_service_calls
+#   from: sffd_service_calls
+#   hidden: yes
+# }

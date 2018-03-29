@@ -15,6 +15,7 @@ explore: new_explore {
 explore: neighborhood_zip {
   join: zipcode_neighborhood_grp {
     sql_on: ${zipcode_neighborhood_grp.zipcode} = ${neighborhood_zip.zipcode} ;;
+    relationship: many_to_one
 
   }
 }

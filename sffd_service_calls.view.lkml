@@ -93,12 +93,7 @@ view: sffd_service_calls {
         END ;;
   }
 
-  measure: member_count_age {
-    type: count
-    sql: CASE WHEN ${battalion} = 'B03' THEN ${dimension_field}
-        ELSE NULL
-        END ;;
-  }
+
 
   measure: member_max_age {
     type: max
