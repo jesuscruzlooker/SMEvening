@@ -13,6 +13,7 @@ datagroup: mydatagroup {
 #new comment
 include: "*.view"
 
+include: "modelbase.base"
 #testing
 
 # include all the dashboards
@@ -107,9 +108,12 @@ include: "*.dashboard"
 #   view_name: sffd_service_calls
 # }
 
-explore: extended_sffd {
+explore: sffd_service_calls {
+  extends: [testingbase]
+  from: sffd_service_calls
   view_name: sffd_service_calls
 }
+
 
 # explore: extended_sffd_explore {
 #   extends: [sffd_service_calls]
