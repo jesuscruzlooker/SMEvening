@@ -13,3 +13,5 @@ explore: sffd_service_calls {
     user_attribute: battle
   }
 }
+
+explore: ndt_test {}
