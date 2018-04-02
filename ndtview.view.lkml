@@ -3,6 +3,7 @@
 
 view: ndt_test {
   derived_table: {
+    persist_for: "5 minutes"
     explore_source: sffd_service_calls {
       column: latitude {}
       column: incident_number {}
