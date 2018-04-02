@@ -20,7 +20,7 @@ view: sfpd_incidents {
     html: <p style="color: red; font-size: 10px"> {{ rendered_value }} </p>;;
   }
 
-  dimension: category2new {
+  dimension: category2ne{
     type: string
     label: "foo"
     sql: ${TABLE}.category ;;
