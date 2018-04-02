@@ -33,6 +33,11 @@ view: sffd_service_calls {
     sql: ${TABLE}.als_unit ;;
   }
 
+  dimension: commit_b {
+    type: yesno
+    sql: ${TABLE}.als_unit ;;
+  }
+
   dimension: als_unit02 {
     type:  string
     sql: ${TABLE}.als_unit;;
