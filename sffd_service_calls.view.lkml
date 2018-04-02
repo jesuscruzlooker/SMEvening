@@ -23,7 +23,7 @@ view: sffd_service_calls {
   dimension: columntest {
     sql: ${TABLE}.columntest ;;
   }
-  dimension: als_unit {
+  dimension: als_unit22 {
     type: yesno
     sql: ${TABLE}.als_unit ;;
   }
