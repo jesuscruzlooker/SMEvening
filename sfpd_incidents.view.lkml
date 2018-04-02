@@ -13,6 +13,20 @@ view: sfpd_incidents {
     html: <p style="color: red; font-size: 10px"> {{ rendered_value }} </p>;;
   }
 
+  dimension: category2 {
+    type: string
+    label: "foo"
+    sql: ${TABLE}.category ;;
+    html: <p style="color: red; font-size: 10px"> {{ rendered_value }} </p>;;
+  }
+
+  dimension: category3 {
+    type: string
+    label: "foo"
+    sql: ${TABLE}.category ;;
+    html: <p style="color: red; font-size: 10px"> {{ rendered_value }} </p>;;
+  }
+
 
   dimension: category_blank {
     type: string
