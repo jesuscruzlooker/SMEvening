@@ -16,7 +16,7 @@ view: github_nested_copy {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: payload {
+  dimension: payload999 {
     hidden: yes
     sql: ${TABLE}.payload ;;
   }
