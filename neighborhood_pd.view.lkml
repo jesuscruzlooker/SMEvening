@@ -10,6 +10,7 @@ view: neighborhood_pd {
     type: string
     sql: ${TABLE}.pd_district ;;
   }
+  #adding a test line
 
   dimension: zipcode {
     type: zipcode
