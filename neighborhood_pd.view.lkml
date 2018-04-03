@@ -6,7 +6,19 @@ view: neighborhood_pd {
     sql: ${TABLE}.neighborhood_group ;;
   }
 
+
+
+
+  dimension: pd_district2 {
+    type: string
+    sql: ${TABLE}.pd_district ;;
+  }
   dimension: pd_district {
+    type: string
+    sql: ${TABLE}.pd_district ;;
+  }
+
+  dimension: pd_district3 {
     type: string
     sql: ${TABLE}.pd_district ;;
   }
