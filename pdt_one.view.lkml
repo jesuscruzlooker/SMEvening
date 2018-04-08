@@ -1,5 +1,6 @@
 view: pdt_one {
   derived_table: {
+    datagroup_trigger: rebuild_pdts
     sql: SELECT
         sffd_service_calls.battalion  AS sffd_service_calls_battalion,
         sffd_service_calls.incident_number  AS sffd_service_calls_incident_number
