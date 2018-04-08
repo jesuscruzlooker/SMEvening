@@ -17,6 +17,7 @@ view: neighborhood_pd {
     type: string
     sql: ${TABLE}.pd_district ;;
   }
+  #adding a test line
 
   dimension: pd_district3 {
     type: string

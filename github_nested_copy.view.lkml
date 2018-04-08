@@ -6,7 +6,7 @@ view: github_nested_copy {
     sql: ${TABLE}.actor ;;
   }
 
-  dimension: actor_attributes {
+  dimension: actor_attributes00 {
     hidden: yes
     sql: ${TABLE}.actor_attributes ;;
   }
@@ -16,7 +16,7 @@ view: github_nested_copy {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: payload {
+  dimension: payload999 {
     hidden: yes
     sql: ${TABLE}.payload ;;
   }
