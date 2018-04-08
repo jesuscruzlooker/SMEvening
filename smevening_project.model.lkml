@@ -133,5 +133,3 @@ explore: sffd_service_calls {
 #   from: sffd_service_calls
 #   hidden: yes
 # }
-
-explore: ndtview {}
