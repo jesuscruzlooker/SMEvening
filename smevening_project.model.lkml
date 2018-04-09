@@ -1,10 +1,7 @@
-#adding comment after deleting branch
-
-
 connection: "mybqtets"
-datagroup: mydatagroup {
-  max_cache_age: "5 minutes"
-  sql_trigger: SELECT 1 ;;
+
+datagroup: rebuild_pdts {
+  sql_trigger: SELECT max(sffd_service_calls.incident_number) FROM sf_thesis.sffd_service_calls ;;
 }
 
 # include all the views
