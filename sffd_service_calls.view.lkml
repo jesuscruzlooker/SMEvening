@@ -255,10 +255,10 @@ view: sffd_service_calls {
 #   }
 
 
-  dimension: call_type_test {
-    type: string
-    sql: CASE WHEN {% condition sffd_service_calls.call_type %} sffd_service_calls.call_type {% endcondition %} then sffd_service_calls.call_number  end;;
-  }
+#   dimension: call_type_test {
+#     type: string
+#     sql: CASE WHEN {% condition sffd_service_calls.call_type %} sffd_service_calls.call_type {% endcondition %} then sffd_service_calls.call_number  end;;
+#   }
 
 
   dimension: call_type_suggest {
@@ -277,10 +277,10 @@ view: sffd_service_calls {
     {% endif %};;
   }
 
-  dimension: testing_filter {
-    type: number
-    sql: {% if sffd_service_calls.call_number._is_filtered %} ${call_type} {% endif %};;
-  }
+#   dimension: testing_filter {
+#     type: number
+#     sql: {% if sffd_service_calls.call_number._is_filtered %} ${call_type} {% endif %};;
+#   }
 
   dimension: call_type_group {
     type: string

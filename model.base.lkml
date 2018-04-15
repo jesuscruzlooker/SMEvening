@@ -1,19 +1,12 @@
-connection: "connection_name"
+connection: "mybqtets"
 
-include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+# include all the views
+include: "*.view"
 
-# # Select the views that should be a part of this model,
-# # and define the joins that connect them together.
-#
-# explore: order_items {
-#   join: orders {
-#     relationship: many_to_one
-#     sql_on: ${orders.id} = ${order_items.order_id} ;;
-#   }
-#
-#   join: users {
-#     relationship: many_to_one
-#     sql_on: ${users.id} = ${orders.user_id} ;;
-#   }
-# }
+# include all the dashboards
+include: "*.dashboard"
+
+explore: random_view {
+  view_name: finalchats
+  from: sffd_service_calls
+}
