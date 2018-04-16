@@ -1,6 +1,6 @@
 view: testing_pdts {
   derived_table: {
-    sql_trigger_value: SELECT EXTRACT(MINUTE from current_timestamp()) ;;
+    sql_trigger_value: SELECT EXTRACT(WEEK from current_timestamp()) ;;
     sql: SELECT
         FORMAT_TIMESTAMP('%Y-%m', CAST(sffd_service_calls.call_date  AS TIMESTAMP)) AS sffd_service_calls_call_month,
         COUNT(CASE WHEN sffd_service_calls.call_type = 'Alarms'  THEN 1 ELSE NULL END) AS sffd_service_calls_count,
