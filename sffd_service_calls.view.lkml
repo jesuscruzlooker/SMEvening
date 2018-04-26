@@ -198,6 +198,7 @@ view: sffd_service_calls {
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
+    suggestions: ["red","blue"]
   }
 
 
@@ -304,6 +305,11 @@ view: sffd_service_calls {
       year
     ]
     sql: ${TABLE}.dispatch_timestamp ;;
+  }
+
+  dimension: differeces {
+    type: date
+    sql:Date_Diff(${dispatch_timestamp_date},${available_timestamp_date},day) ;;
   }
 
   dimension_group: entry_timestamp {

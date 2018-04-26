@@ -14,22 +14,6 @@ include: "*.view"
 include: "*.dashboard"
 
 
-#commit test
-explore: testing_date {
-  join: admin_view {
-    relationship: one_to_one
-    sql_on:
-
-    {% if admin_view.sumvalue._in_query %}
-    test
-    {% elsif admin_view.count._in_query %}
-    secondtest
-    {% else %}
-    elsetest
-    {% endif %}
-    ;;
-  }
-}
 
   explore: admin_view {
     join: testing_date {
@@ -57,6 +41,17 @@ explore: neighborhood_pd {}
 explore: neighborhood_zip {}
 
 explore: sffd_service_calls {}
+
+explore: sffd_service_calls_access {
+  from: sffd_service_calls
+  always_filter: {
+    filters: {
+      field: battalion
+      value: "B03"
+    }
+
+  }
+}
 
 explore: newsffdcalls {
   from: sffd_service_calls

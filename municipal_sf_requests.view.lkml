@@ -25,6 +25,7 @@ view: municipal_sf_requests {
     sql: ${TABLE}.closed_date ;;
   }
 
+
   dimension: complaint_type {
     type: string
     sql: ${TABLE}.complaint_type ;;
@@ -43,6 +44,18 @@ view: municipal_sf_requests {
     ]
     sql: ${TABLE}.created_date ;;
   }
+
+  measure: max_date {
+    type: date
+    sql: MAX(${created_raw});;
+
+    }
+
+  measure: testing_dates {
+    sql: CASE WHEN ${created_month} < ${max_date} THEN 1 Else 2 END  ;;
+  }
+
+
 
   dimension: descriptor {
     type: string
