@@ -13,7 +13,17 @@ view: sffd_service_calls {
   dimension: address {
     type: string
     sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;
-    html: <a href="{{ value }}">link text</a> ;;
+    html: <p style="font-size:0.4px;"><a href="{{ value }}">link text</a> </p>;;
+  }
+
+  dimension: user_story {
+    type: string
+    sql: '<p>I am normal</p><p style="color:red;">I am red</p><p style="color:blue;">I am blue</p><p style="font-size:50px;">I am big</p>' ;;
+    html: <html>
+    <body>
+    {{ value }}
+    </body>
+    </html> ;;
   }
 
   filter: filter_test {
@@ -189,16 +199,28 @@ view: sffd_service_calls {
       week,
       month,
       quarter,
-      year
+      year,
+      hour,
+      day_of_week,
+      day_of_week_index
     ]
     sql: DATE(${TABLE}.available_timestamp) ;;
     datatype: date
   }
 
+  dimension: day_of_week_index {
+    type: string
+    sql: ${available_timestamp2_day_of_week_index} ;;
+  }
+
+  dimension: day_of_week {
+    type: string
+    sql: ${available_timestamp2_day_of_week} ;;
+  }
+
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
-    suggestions: ["red","blue"]
   }
 
 

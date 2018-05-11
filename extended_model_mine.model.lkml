@@ -1,7 +1,7 @@
-connection: "mybqtets"
+ connection: "mybqtets"
 
 include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "newtest.dashboard.lookml"  # include all dashboards in this project
 include: "model.base.lkml"
 
 

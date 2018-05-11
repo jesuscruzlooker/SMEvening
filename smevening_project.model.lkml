@@ -1,4 +1,4 @@
- connection: "mybqtets"
+connection: "mybqtets"
 
 datagroup: rebuild_pdts {
   sql_trigger: SELECT max(sffd_service_calls.incident_number) FROM sf_thesis.sffd_service_calls ;;
@@ -11,7 +11,7 @@ include: "*.view"
 
 
 # include all the dashboards
-include: "*.dashboard"
+include: "newtest.dashboard.lookml"
 
 
 
