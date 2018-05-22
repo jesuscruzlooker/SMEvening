@@ -11,10 +11,10 @@ include: "*.view"
 
 
 # include all the dashboards
-include: "newtest.dashboard.lookml"
+include: "*.dashboard.lookml"
 
 
-
+explore: pdt_one {}
   explore: admin_view {
     join: testing_date {
     relationship: one_to_one

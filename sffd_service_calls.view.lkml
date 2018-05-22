@@ -18,12 +18,34 @@ view: sffd_service_calls {
 
   dimension: user_story {
     type: string
-    sql: '<p>I am normal</p><p style="color:red;">I am red</p><p style="color:blue;">I am blue</p><p style="font-size:50px;">I am big</p>' ;;
-    html: <html>
-    <body>
-    {{ value }}
-    </body>
-    </html> ;;
+    sql: 'zzhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPSfn1_SbF4bYmszfhGDFINxVRPzb0rja3dVhq00tAVXPiLT7OYT2EpAzzJob to be donezzTo effectively build a report that joins data across unrelated data/schemaszzFunctional Stepszza. Create Data Merge; b. Create Source Explore; c. Run into Null valueszzSocial & Emotional componentszza. Poor Customer Experience "I feel that Looker is showing me the wrong thing."; Misset expectations "This is isnt what I was expecting with this feature" ' ;;
+    html:{% assign lines = rendered_value | newline_to_br | split: 'zz' %}
+          {% for lines in lines %}
+          {% endfor %}
+          <p><img src="{{ lines[1] }}" height=50 width=110></p>
+          <p style="font-size:125%"><b>{{ lines[2] }}:</b> {{ lines[3] }}<p>
+          <br></br>
+          <p style="font-size:125%"><b>{{ lines[4] }}:</b> {{ lines[5] }}<p>
+          <br></br>
+           <p style="font-size:125%"><b>{{ lines[6] }}:</b> {{ lines[7] }}<p>;;
+
+
+  }
+
+  dimension: testingcase {
+    sql: {% parameter battalp %}  ;;
+  }
+
+  parameter: battalp {
+    type: string
+    allowed_value: {
+      label: "testing"
+      value: "B08"
+    }
+    allowed_value: {
+      label: "testing"
+      value: "B04"
+    }
   }
 
   filter: filter_test {
@@ -32,6 +54,10 @@ view: sffd_service_calls {
 
   dimension: columntest {
     sql: ${TABLE}.columntest ;;
+    link: {
+      label: "testinglabel"
+      url: "https://localhost:9999/dashboards/14"
+    }
   }
   dimension: als_unit22 {
     type: yesno
@@ -41,6 +67,19 @@ view: sffd_service_calls {
   dimension: commit_A {
     type: yesno
     sql: ${TABLE}.als_unit ;;
+    link: {
+      label: "testinglabel"
+      url: "https://localhost:9999/dashboards/14?Battalion={{ value | url_encode }}"
+    }
+  }
+
+  dimension: commit_A2 {
+    type: yesno
+    sql: ${TABLE}.als_unit ;;
+    link: {
+      label: "testinglabel"
+      url: "/dashboards/14?Battalion={{ value | url_encode }}"
+    }
   }
 
   dimension: commit_b {
@@ -221,6 +260,11 @@ view: sffd_service_calls {
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
+    suggest_persist_for: "1 minutes"
+    link: {
+      label: "testinglabel"
+      url: "/dashboards/14"
+    }
   }
 
 
@@ -253,7 +297,7 @@ view: sffd_service_calls {
   dimension: call_number {
     type: number
     sql: ${TABLE}.call_number ;;
-    html:  %{{value | times: 10000000 }} ;;
+    html:  %{{ value | times: 0.3 }} ;;
   }
 
   dimension: call_type {
@@ -398,8 +442,16 @@ view: sffd_service_calls {
   }
 
   dimension: number_of_alarms {
-    type: number
+    type: tier
+    tiers: [0,1,2,3,4,5,6]
     sql: ${TABLE}.number_of_alarms ;;
+  }
+
+  dimension: tiergrp {
+    type: tier
+    tiers: [0,1,2,3,4,5,6]
+    style: integer
+    sql: ${TABLE}.number_of_alarms;;
   }
 
   dimension_group: on_scene_timestamp {
@@ -555,9 +607,38 @@ view: sffd_service_calls {
       field:  calltype_yn
       value: "yes"
     }
+
+      html:
+          {% if value <= 900 %}
+          <p style="color: red; font-size:74px">{{ rendered_value }}</p>
+          {% elsif value > 900 %}
+          <p style="color: green; font-size:74px">{{ rendered_value }}</p>
+          {% endif %}
+          ;;
+
     #html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
 
   }
+
+
+  measure: count22 {
+    type: count
+    drill_fields: []
+    filters: {
+      field:  calltype_yn
+      value: "yes"
+    }
+
+      html:
+          {% if value <= 900 %}
+          <p style="color: red; font-size:74px">{{ rendered_value }}</p>
+          {% elsif value > 900 %}
+          <p style="color: green; font-size:74px"><b>{{ rendered_value }}</b></p>
+          {% endif %}
+          ;;
+
+          }
+
 
   measure: mysum_test {
     type:  sum
