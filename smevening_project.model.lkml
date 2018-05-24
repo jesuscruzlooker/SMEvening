@@ -13,7 +13,9 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard.lookml"
 
+explore: newndt {}
 
+# explore: newndt2 {}
 explore: pdt_one {}
   explore: admin_view {
     join: testing_date {
