@@ -275,6 +275,7 @@ view: sffd_service_calls {
   }
 
   dimension: box2 {
+    label: "boxes sold"
     type: string
     sql: ${TABLE}.box ;;
   }
