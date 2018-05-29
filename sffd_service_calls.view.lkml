@@ -274,6 +274,11 @@ view: sffd_service_calls {
     sql: ${TABLE}.box ;;
   }
 
+  dimension: box2 {
+    type: string
+    sql: ${TABLE}.box ;;
+  }
+
   dimension_group: call {
     type: time
     timeframes: [
