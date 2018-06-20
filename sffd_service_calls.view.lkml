@@ -134,6 +134,20 @@ view: sffd_service_calls {
         ;;
   }
 
+  dimension: liquidif {
+    type: string
+    sql:
+    {% if  0 == 1 %}
+    'first'
+     {% elsif 1 == 1 %}
+
+    'second'
+    {% elsif 1 == 1 %}
+    'third'
+    {% endif %}
+        ;;
+  }
+
   dimension: member_age {
     type: number
     sql:
@@ -274,7 +288,7 @@ view: sffd_service_calls {
     sql: ${TABLE}.box ;;
   }
 
-  dimension: boxes_2_test {
+  dimension: boxes_2_test_3rd_test {
     label: "boxes sold again"
     type: string
     sql: ${TABLE}.box ;;
@@ -664,4 +678,15 @@ view: sffd_service_calls {
 
 
 
+}
+
+
+
+
+view: link_placement_publishers {
+  extends: [sffd_service_calls]
+  dimension: link_name {
+    sql: ${TABLE}.zipcode_of_incident ;;
+    html: {{ value }} ;;
+  }
 }

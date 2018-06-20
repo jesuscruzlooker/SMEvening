@@ -13,6 +13,7 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard.lookml"
 
+
 explore: newndt {}
 
 # explore: newndt2 {}
@@ -81,3 +82,5 @@ explore: extended_sffd {
 }
 
 explore: testing_pdts {}
+
+explore: link_placement_publishers {}
