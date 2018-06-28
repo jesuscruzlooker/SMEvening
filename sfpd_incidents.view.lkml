@@ -6,6 +6,11 @@ view: sfpd_incidents {
     sql: ${TABLE}.address ;;
   }
 
+  dimension: pktest {
+    type: string
+    sql: CONCAT("testing ", CURRENT_TIMESTAMP()) ;;
+  }
+
   dimension: category {
     type: string
     label: "foo"

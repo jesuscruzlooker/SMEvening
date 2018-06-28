@@ -13,7 +13,39 @@ view: sffd_service_calls {
   dimension: address {
     type: string
     sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;
-    html: <a href="{{ value }}">link text</a> ;;
+    html: <p style="font-size:0.4px;"><a href="{{ value }}">link text</a> </p>;;
+  }
+
+  dimension: user_story {
+    type: string
+    sql: 'zzhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPSfn1_SbF4bYmszfhGDFINxVRPzb0rja3dVhq00tAVXPiLT7OYT2EpAzzJob to be donezzTo effectively build a report that joins data across unrelated data/schemaszzFunctional Stepszza. Create Data Merge; b. Create Source Explore; c. Run into Null valueszzSocial & Emotional componentszza. Poor Customer Experience "I feel that Looker is showing me the wrong thing."; Misset expectations "This is isnt what I was expecting with this feature" ' ;;
+    html:{% assign lines = rendered_value | newline_to_br | split: 'zz' %}
+          {% for lines in lines %}
+          {% endfor %}
+          <p><img src="{{ lines[1] }}" height=50 width=110></p>
+          <p style="font-size:125%"><b>{{ lines[2] }}:</b> {{ lines[3] }}<p>
+          <br></br>
+          <p style="font-size:125%"><b>{{ lines[4] }}:</b> {{ lines[5] }}<p>
+          <br></br>
+           <p style="font-size:125%"><b>{{ lines[6] }}:</b> {{ lines[7] }}<p>;;
+
+
+  }
+
+  dimension: testingcase {
+    sql: {% parameter battalp %}  ;;
+  }
+
+  parameter: battalp {
+    type: string
+    allowed_value: {
+      label: "testing"
+      value: "B08"
+    }
+    allowed_value: {
+      label: "testing"
+      value: "B04"
+    }
   }
 
   filter: filter_test {
@@ -22,6 +54,10 @@ view: sffd_service_calls {
 
   dimension: columntest {
     sql: ${TABLE}.columntest ;;
+    link: {
+      label: "testinglabel"
+      url: "https://localhost:9999/dashboards/14"
+    }
   }
   dimension: als_unit22 {
     type: yesno
@@ -31,6 +67,19 @@ view: sffd_service_calls {
   dimension: commit_A {
     type: yesno
     sql: ${TABLE}.als_unit ;;
+    link: {
+      label: "testinglabel"
+      url: "https://localhost:9999/dashboards/14?Battalion={{ value | url_encode }}"
+    }
+  }
+
+  dimension: commit_A2 {
+    type: yesno
+    sql: ${TABLE}.als_unit ;;
+    link: {
+      label: "testinglabel"
+      url: "/dashboards/14?Battalion={{ value | url_encode }}"
+    }
   }
 
   dimension: commit_b {
@@ -81,6 +130,20 @@ view: sffd_service_calls {
      {% else %}
 
     else_condition
+    {% endif %}
+        ;;
+  }
+
+  dimension: liquidif {
+    type: string
+    sql:
+    {% if  0 == 1 %}
+    'first'
+     {% elsif 1 == 1 %}
+
+    'second'
+    {% elsif 1 == 1 %}
+    'third'
     {% endif %}
         ;;
   }
@@ -189,20 +252,44 @@ view: sffd_service_calls {
       week,
       month,
       quarter,
-      year
+      year,
+      hour,
+      day_of_week,
+      day_of_week_index
     ]
     sql: DATE(${TABLE}.available_timestamp) ;;
     datatype: date
   }
 
+  dimension: day_of_week_index {
+    type: string
+    sql: ${available_timestamp2_day_of_week_index} ;;
+  }
+
+  dimension: day_of_week {
+    type: string
+    sql: ${available_timestamp2_day_of_week} ;;
+  }
+
   dimension: battalion {
     type: string
     sql: ${TABLE}.battalion ;;
+    suggest_persist_for: "1 minutes"
+    link: {
+      label: "testinglabel"
+      url: "/dashboards/14"
+    }
   }
 
 
 
   dimension: box {
+    type: string
+    sql: ${TABLE}.box ;;
+  }
+
+  dimension: boxes_2_test_3rd_test {
+    label: "boxes sold again"
     type: string
     sql: ${TABLE}.box ;;
   }
@@ -230,7 +317,7 @@ view: sffd_service_calls {
   dimension: call_number {
     type: number
     sql: ${TABLE}.call_number ;;
-    html:  %{{value | times: 10000000 }} ;;
+    html:  %{{ value | times: 0.3 }} ;;
   }
 
   dimension: call_type {
@@ -255,10 +342,10 @@ view: sffd_service_calls {
 #   }
 
 
-  dimension: call_type_test {
-    type: string
-    sql: CASE WHEN {% condition sffd_service_calls.call_type %} sffd_service_calls.call_type {% endcondition %} then sffd_service_calls.call_number  end;;
-  }
+#   dimension: call_type_test {
+#     type: string
+#     sql: CASE WHEN {% condition sffd_service_calls.call_type %} sffd_service_calls.call_type {% endcondition %} then sffd_service_calls.call_number  end;;
+#   }
 
 
   dimension: call_type_suggest {
@@ -277,10 +364,10 @@ view: sffd_service_calls {
     {% endif %};;
   }
 
-  dimension: testing_filter {
-    type: number
-    sql: {% if sffd_service_calls.call_number._is_filtered %} ${call_type} {% endif %};;
-  }
+#   dimension: testing_filter {
+#     type: number
+#     sql: {% if sffd_service_calls.call_number._is_filtered %} ${call_type} {% endif %};;
+#   }
 
   dimension: call_type_group {
     type: string
@@ -304,6 +391,11 @@ view: sffd_service_calls {
       year
     ]
     sql: ${TABLE}.dispatch_timestamp ;;
+  }
+
+  dimension: differeces {
+    type: date
+    sql:Date_Diff(${dispatch_timestamp_date},${available_timestamp_date},day) ;;
   }
 
   dimension_group: entry_timestamp {
@@ -370,8 +462,16 @@ view: sffd_service_calls {
   }
 
   dimension: number_of_alarms {
-    type: number
+    type: tier
+    tiers: [0,1,2,3,4,5,6]
     sql: ${TABLE}.number_of_alarms ;;
+  }
+
+  dimension: tiergrp {
+    type: tier
+    tiers: [0,1,2,3,4,5,6]
+    style: integer
+    sql: ${TABLE}.number_of_alarms;;
   }
 
   dimension_group: on_scene_timestamp {
@@ -527,9 +627,38 @@ view: sffd_service_calls {
       field:  calltype_yn
       value: "yes"
     }
+
+      html:
+          {% if value <= 900 %}
+          <p style="color: red; font-size:74px">{{ rendered_value }}</p>
+          {% elsif value > 900 %}
+          <p style="color: green; font-size:74px">{{ rendered_value }}</p>
+          {% endif %}
+          ;;
+
     #html:  {{value}} %{{unit_sequence_in_call_dispatch._rendered_value}} ;;
 
   }
+
+
+  measure: count22 {
+    type: count
+    drill_fields: []
+    filters: {
+      field:  calltype_yn
+      value: "yes"
+    }
+
+      html:
+          {% if value <= 900 %}
+          <p style="color: red; font-size:74px">{{ rendered_value }}</p>
+          {% elsif value > 900 %}
+          <p style="color: green; font-size:74px"><b>{{ rendered_value }}</b></p>
+          {% endif %}
+          ;;
+
+          }
+
 
   measure: mysum_test {
     type:  sum
@@ -549,4 +678,15 @@ view: sffd_service_calls {
 
 
 
+}
+
+
+
+
+view: link_placement_publishers {
+  extends: [sffd_service_calls]
+  dimension: link_name {
+    sql: ${TABLE}.zipcode_of_incident ;;
+    html: {{ value }} ;;
+  }
 }
