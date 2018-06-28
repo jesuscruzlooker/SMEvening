@@ -11,7 +11,7 @@
        ;;
     }
 
-    parameter: date_gran {
+    parameter: date_granname {
       type: unquoted
       allowed_value: { value: "Day" }
       allowed_value: { value: "Month" }
