@@ -15,7 +15,6 @@ include: "*.view"
 #include: "*.dashboard.lookml"
 
 
-explore: newndt {}
 
 # explore: newndt2 {}
 explore: admin_view {
@@ -43,7 +42,7 @@ explore: neighborhood_pd {}
 
 explore: neighborhood_zip {}
 
-explore: sffd_service_calls {}
+explore: sffd_service_calls_edit {}
 
 explore: sffd_service_calls_access {
   from: sffd_service_calls

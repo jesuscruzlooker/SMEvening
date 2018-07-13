@@ -15,7 +15,6 @@ include: "*.view"
 #include: "*.dashboard.lookml"
 
 
-explore: newndt {}
 
 explore: admin_view {
     join: testing_date {
