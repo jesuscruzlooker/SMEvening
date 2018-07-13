@@ -1,11 +1,10 @@
 connection: "mybqtets"
 
-# datagroup: rebuild_pdts {
-#   sql_trigger: SELECT max(sffd_service_calls.incident_number) FROM sf_thesis.sffd_service_calls ;;
-# }
-
 persist_for: "1 hour"
 
+datagroup: 5_minute_datagroup {
+  sql_trigger: SELECT FLOOR((TIMESTAMP_DIFF(CURRENT_TIMESTAMP(),'1970-01-01 00:00:00',SECOND)) / (0.08*60*60)) ;;
+}
 
 #new comment
 include: "sffd_service_calls.view"
@@ -21,4 +20,6 @@ explore: municipal_sf_requests {}
 
 explore: neighborhood_zip {}
 
-explore: sffd_service_calls {}
+explore: sffd_service_calls {
+  persist_with: 5_minute_datagroup
+}
