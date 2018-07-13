@@ -4,7 +4,7 @@ connection: "mybqtets"
 include: "*.view"
 
 # include all the dashboards
-include: "*.dashboard"
+#include: "*.dashboard"
 
 explore: random_view {
   view_name: finalchats

@@ -17,16 +17,17 @@ include: "*.view"
 
 explore: newndt {}
 
+# explore: newndt2 {}
 explore: admin_view {
-    join: testing_date {
+  join: testing_date {
     relationship: one_to_one
     sql_on:
 
       ${admin_view.sffd_service_calls_call_date_year} = ${testing_date.sffd_service_calls_call_date_year}
 
   ;;
-    }
   }
+}
 
 
 explore: municipal_sf_requests {
@@ -36,7 +37,7 @@ explore: municipal_sf_requests {
 explore: testing_extends {
   view_name: neighborhood_zip
   from: neighborhood_zip
-  }
+}
 
 explore: neighborhood_pd {}
 
@@ -55,14 +56,7 @@ explore: sffd_service_calls_access {
   }
 }
 
-explore: newsffdcalls {
-  from: sffd_service_calls
-  join: sffd_service_calls {
-    fields: [filter_test,call_type]
-    relationship: many_to_one
-    sql_on: ${sffd_service_calls.row_id} = ${newsffdcalls.row_id} ;;
-  }
-}
+
 
 explore: zipcode_neighborhood_grp {}
 
@@ -72,3 +66,16 @@ explore: sfpd_incidents {
     -category_blank
   ]
 }
+
+
+explore: extended_sffd {
+
+  join: sffd_service_calls {
+    relationship: many_to_one
+    sql_on: ${extended_sffd.call_number}=${sffd_service_calls.call_number} ;;
+  }
+}
+
+explore: testing_pdts {}
+
+explore: link_placement_publishers {}
