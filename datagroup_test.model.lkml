@@ -21,6 +21,9 @@ datagroup: 2_hour_datagroup {
 include: "sffd_service_calls.view"
 include: "municipal_sf_requests.view"
 include: "neighborhood_zip.view"
+include: "ndt_with_datagroup.view"
+
+
 
 # include all the dashboards
 #include: "*.dashboard.lookml"
@@ -34,3 +37,5 @@ explore: neighborhood_zip {}
 explore: sffd_service_calls {
   persist_with: 5_minute_datagroup
 }
+
+explore: ndt_with_datagroup {}

@@ -1,6 +1,7 @@
 # If necessary, uncomment the line below to include explore_source.
 # include: "datagroup_test.model.lkml"
 
+
 view: ndt_with_datagroup {
   derived_table: {
     datagroup_trigger: 5_minute_datagroup
