@@ -674,19 +674,8 @@ view: sffd_service_calls {
 
 
 
+  measure: basic_count {
+    type: count
+    }
 
-
-
-
-}
-
-
-
-
-view: link_placement_publishers {
-  extends: [sffd_service_calls]
-  dimension: link_name {
-    sql: ${TABLE}.zipcode_of_incident ;;
-    html: {{ value }} ;;
-  }
 }

@@ -74,7 +74,3 @@ explore: extended_sffd {
     sql_on: ${extended_sffd.call_number}=${sffd_service_calls.call_number} ;;
   }
 }
-
-explore: testing_pdts {}
-
-explore: link_placement_publishers {}
