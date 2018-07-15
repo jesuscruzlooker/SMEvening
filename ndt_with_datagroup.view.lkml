@@ -4,7 +4,7 @@
 
 view: ndt_with_datagroup {
   derived_table: {
-    datagroup_trigger: 5_minute_datagroup
+   # datagroup_trigger: 5_minute_datagroup
     explore_source: sffd_service_calls {
       column: supervisor_district {}
       column: station_area {}
