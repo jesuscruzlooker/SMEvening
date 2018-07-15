@@ -12,6 +12,11 @@ datagroup: 30_minute_datagroup {
   sql_trigger: SELECT FLOOR((TIMESTAMP_DIFF(CURRENT_TIMESTAMP(),'1970-01-01 00:00:00',SECOND)) / (0.5*60*60)) ;;
 }
 
+#Set cache at every 0.5 (1/2 hour)
+datagroup: 2_hour_datagroup {
+  sql_trigger: SELECT FLOOR((TIMESTAMP_DIFF(CURRENT_TIMESTAMP(),'1970-01-01 00:00:00',SECOND)) / (2*60*60)) ;;
+}
+
 #new comment
 include: "sffd_service_calls.view"
 include: "municipal_sf_requests.view"
