@@ -54,14 +54,6 @@ explore: sffd_service_calls_access {
   }
 }
 
-explore: newsffdcalls {
-  from: sffd_service_calls
-  join: sffd_service_calls {
-    fields: [filter_test,call_type]
-    relationship: many_to_one
-    sql_on: ${sffd_service_calls.row_id} = ${newsffdcalls.row_id} ;;
-  }
-}
 
 explore: zipcode_neighborhood_grp {}
 

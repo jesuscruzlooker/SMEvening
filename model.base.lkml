@@ -1,7 +1,7 @@
 connection: "mybqtets"
 
 # include all the views
-include: "*.view"
+include: "sffd_service_calls.view"
 
 # include all the dashboards
 #include: "*.dashboard"
