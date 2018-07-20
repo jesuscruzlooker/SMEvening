@@ -8,12 +8,12 @@ explore: query_kill_test{
 
 view: query_kill_test {
   derived_table: {
-    sql:select sleep(10) as sleep  ;;
+    sql: SELECT sleep(10) as test_sleep  ;;
   }
 
   dimension: sleep {
     type: number
-    sql: ${TABLE}.sleep ;;
+    sql: ${TABLE}.test_sleep ;;
   }
 
 }
