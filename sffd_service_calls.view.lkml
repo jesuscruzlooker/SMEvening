@@ -10,7 +10,7 @@ view: sffd_service_calls {
 #   sf_thesis.sffd_service_calls
 #   LIMIT 100)  ;;
 
-  dimension: address {
+  dimension: new_address {
     type: string
     sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;
     html: <p style="font-size:0.4px;"><a href="{{ value }}">link text</a> </p>;;
