@@ -16,7 +16,7 @@ view: sffd_service_calls {
     html: <p style="font-size:0.4px;"><a href="{{ value }}">link text</a> </p>;;
   }
 
-  dimension: user_story {
+  dimension: yauser_story {
     type: string
     sql: 'zzhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPSfn1_SbF4bYmszfhGDFINxVRPzb0rja3dVhq00tAVXPiLT7OYT2EpAzzJob to be donezzTo effectively build a report that joins data across unrelated data/schemaszzFunctional Stepszza. Create Data Merge; b. Create Source Explore; c. Run into Null valueszzSocial & Emotional componentszza. Poor Customer Experience "I feel that Looker is showing me the wrong thing."; Misset expectations "This is isnt what I was expecting with this feature" ' ;;
     html:{% assign lines = rendered_value | newline_to_br | split: 'zz' %}
