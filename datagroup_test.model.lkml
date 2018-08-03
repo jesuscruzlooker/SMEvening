@@ -1,6 +1,6 @@
 connection: "mybqtets"
 
- persist_for: "7 minutes"
+ persist_for: "1 hour"
 
 #Set cache at every 0.08 (5 minutes)
 datagroup: 5_minute_datagroup {
