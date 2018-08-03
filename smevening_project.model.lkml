@@ -9,7 +9,7 @@ persist_for: "1 hour"
 
 #new comment
 include: "*.view"
-
+include: "mylkml_db.dashboard.lookml"
 
 # include all the dashboards
 #include: "*.dashboard.lookml"

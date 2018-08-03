@@ -591,7 +591,8 @@ view: sffd_service_calls_edit {
 
     dimension: zipcode_of_incident {
       type: string
-      sql: ${TABLE}.zipcode_of_incident ;;
+      sql:  ${TABLE}.zipcode_of_incident ;;
+      html: <span align="center">{{ rendered_value }}</span>;;
     }
 
     measure: yesnotype {

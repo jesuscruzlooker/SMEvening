@@ -632,7 +632,7 @@ view: sffd_service_calls {
           {% if value <= 900 %}
           <p style="color: red; font-size:74px">{{ rendered_value }}</p>
           {% elsif value > 900 %}
-          <p style="color: green; font-size:74px">{{ rendered_value }}</p>
+          <p style="color: green; font-size:11">{{ rendered_value }}</p>
           {% endif %}
           ;;
 
