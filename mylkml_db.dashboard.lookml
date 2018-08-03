@@ -8,6 +8,7 @@
     show_filters_bar: true
     tile_text_color: "#3a4245"
     text_tile_text_color: ''
+    show_filters_bar: false
   elements:
   - title: New Tile
     name: New Tile
