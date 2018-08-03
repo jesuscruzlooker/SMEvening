@@ -30,7 +30,9 @@ include: "ndt_with_datagroup.view"
 
 
 
-explore: municipal_sf_requests {}
+explore: municipal_sf_requests {
+  persist_for: "30 minutes"
+}
 
 explore: neighborhood_zip {}
 
