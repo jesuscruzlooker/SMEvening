@@ -33,7 +33,6 @@ include: "ndt_with_datagroup.view"
 
 
 explore: municipal_sf_requests {
-  persist_with: 5_minute_datagroup
 
 }
 
