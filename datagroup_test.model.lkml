@@ -1,7 +1,6 @@
 connection: "mybqtets"
 
 persist_with: 5_minute_datagroup
-persist_for: "10 minutes"
 
 #Set cache at every 0.08 (5 minutes)
 datagroup: 5_minute_datagroup {
@@ -33,7 +32,6 @@ include: "ndt_with_datagroup.view"
 
 
 explore: municipal_sf_requests {
-  persist_with: 5_minute_datagroup
   persist_for: "10 minutes"
 }
 
