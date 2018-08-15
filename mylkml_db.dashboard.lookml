@@ -216,14 +216,10 @@
   filters:
   - name: Battalion
     title: Battalion
-    type: field_filter
+    type: string_filter
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: smevening_project
-    explore: sffd_service_calls
-    listens_to_filters: []
-    field: sffd_service_calls.battalion
   - name: Second
     title: Second
     type: string_filter
