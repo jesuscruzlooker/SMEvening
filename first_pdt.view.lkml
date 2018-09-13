@@ -1,5 +1,7 @@
 view: first_pdt {
   derived_table: {
+    persist_for: "1 hour"
+
     sql: SELECT
         sffd_service_calls.station_area  AS sffd_service_calls_station_area,
         sffd_service_calls.supervisor_district  AS sffd_service_calls_supervisor_district,
