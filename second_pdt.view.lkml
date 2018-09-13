@@ -1,0 +1,20 @@
+view: second_pdt {
+  derived_table: {
+    sql: SELECT
+        sffd_service_calls_station_area,
+        sffd_service_calls_supervisor_district,
+
+      FROM ${first_pdt.SQL_TABLE_NAME}
+
+
+      LIMIT 500
+       ;;
+  }
+
+  dimension: sffd_service_calls_station_area_2nd {
+    type: string
+    sql: ${TABLE}.sffd_service_calls_station_area ;;
+  }
+
+
+}
