@@ -1,4 +1,4 @@
-include: "first_pdt.view"
+
 
 view: second_pdt {
   derived_table: {
