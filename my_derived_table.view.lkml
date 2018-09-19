@@ -13,7 +13,7 @@ view: my_derived_table {
       WHEN sffd_service_calls.number_of_alarms  >= 4.0 AND sffd_service_calls.number_of_alarms  < 5.0 THEN 'T05 [4.0,5.0)'
       WHEN sffd_service_calls.number_of_alarms  >= 5.0 AND sffd_service_calls.number_of_alarms  < 6.0 THEN 'T06 [5.0,6.0)'
       WHEN sffd_service_calls.number_of_alarms  >= 6.0 THEN 'T07 [6.0,inf)'
-      ELSE 'TXX Undefined'
+      ELSE 'TXX Undefined with change to SQL'
       END AS sffd_service_calls_number_of_alarms,
         sffd_service_calls.original_priority  AS sffd_service_calls_original_priority,
         COUNT(CASE WHEN sffd_service_calls.call_type = 'Alarms'  THEN 1 ELSE NULL END) AS sffd_service_calls_count
