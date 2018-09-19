@@ -18,6 +18,7 @@ view: my_derived_table {
         sffd_service_calls.original_priority  AS sffd_service_calls_original_priority,
         COUNT(CASE WHEN sffd_service_calls.call_type = 'Alarms'  THEN 1 ELSE NULL END) AS sffd_service_calls_count
       FROM sf_thesis.sffd_service_calls AS sffd_service_calls
+      Where  sffd_service_calls.original_priority = 3
 
       GROUP BY 1,2,3
       ORDER BY 4 DESC
