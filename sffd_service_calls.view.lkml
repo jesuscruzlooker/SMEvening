@@ -10,6 +10,10 @@ view: sffd_service_calls {
 #   sf_thesis.sffd_service_calls
 #   LIMIT 100)  ;;
 
+  filter: date_filter_name {
+    type: date
+  }
+
   dimension: edit_new_address {
     type: string
     sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;

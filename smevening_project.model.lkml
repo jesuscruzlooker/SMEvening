@@ -41,7 +41,11 @@ explore: neighborhood_pd {}
 
 explore: neighborhood_zip {}
 
-explore: sffd_service_calls {}
+explore: sffd_service_calls {
+  persist_for: "1 minutes"
+#   from: sffd_service_calls
+#   sql_always_where: {% date_start sffd_service_calls_test.date_filter_name %} < {% date_end sffd_service_calls_test.date_filter_name %} ;;
+}
 
 explore: sffd_service_calls_access {
   from: sffd_service_calls
