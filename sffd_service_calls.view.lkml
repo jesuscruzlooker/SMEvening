@@ -105,9 +105,10 @@ view: sffd_service_calls {
     sql: ${TABLE}.als_unit ;;
   }
 
-  dimension: undefined_count {
+  dimension: nil {
     type: yesno
     sql: ${TABLE}.als_unit ;;
+
   }
 
   dimension: als_unit02 {
