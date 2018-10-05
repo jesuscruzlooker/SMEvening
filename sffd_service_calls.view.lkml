@@ -14,6 +14,20 @@ view: sffd_service_calls {
     type: date
   }
 
+  filter: mydate {
+    type: date
+  }
+
+  dimension: startfield {
+    type: date
+    sql: {% date_start mydate %} ;;
+  }
+
+  dimension: endfield {
+    type: date
+    sql: {% date_end mydate %} ;;
+  }
+
   dimension: edit_new_address {
     type: string
     sql: 'https://discourse.looker.com/t/custom-drill-using-html-and-query-parameters/770' ;;
@@ -91,7 +105,7 @@ view: sffd_service_calls {
     sql: ${TABLE}.als_unit ;;
   }
 
-  dimension: commit_bb {
+  dimension: undefined_count {
     type: yesno
     sql: ${TABLE}.als_unit ;;
   }
