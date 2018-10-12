@@ -109,6 +109,8 @@ view: sffd_service_calls {
     type: yesno
     sql: ${TABLE}.als_unit ;;
 
+
+
   }
 
 
@@ -612,6 +614,7 @@ view: sffd_service_calls {
   dimension: zipcode_of_incident {
     type: string
     sql: ${TABLE}.zipcode_of_incident ;;
+    map_layer_name: us_zipcode_tabulation_areas
   }
 
   measure: yesnotype {
