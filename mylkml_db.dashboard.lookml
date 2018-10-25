@@ -49,7 +49,7 @@
     hidden_fields: []
     y_axes: []
     listen:
-      Battalion: sffd_service_calls.battalion
+      Battalion My: sffd_service_calls.battalion
     row: 0
     col: 0
     width: 19
@@ -101,7 +101,7 @@
     y_axes: []
     single_value_title: ''
     listen:
-      Battalion: sffd_service_calls.battalion
+      Battalion My: sffd_service_calls.battalion
     row: 6
     col: 16
     width: 8
@@ -208,14 +208,14 @@
     hidden_fields: []
     y_axes: []
     listen:
-      Battalion: sffd_service_calls.battalion
+      Battalion My: sffd_service_calls.battalion
     row: 6
     col: 0
     width: 8
     height: 6
   filters:
-  - name: Battalion
-    title: Battalion
+  - name: Battalion My
+    title: Battalion My
     type: string_filter
     default_value: ''
     allow_multiple_values: true

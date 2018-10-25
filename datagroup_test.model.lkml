@@ -20,27 +20,27 @@ datagroup: 2_hour_datagroup {
   sql_trigger: SELECT FLOOR((TIMESTAMP_DIFF(CURRENT_TIMESTAMP(),'1970-01-01 00:00:00',SECOND)) / (2*60*60)) ;;
 }
 
-#new comment
-include: "sffd_service_calls.view"
-include: "municipal_sf_requests.view"
-include: "neighborhood_zip.view"
-include: "ndt_with_datagroup.view"
-
-
-
-# include all the dashboards
-#include: "*.dashboard.lookml"
-
-
-
-explore: municipal_sf_requests {
-
-}
-
-explore: neighborhood_zip {}
-
-explore: sffd_service_calls {
-  persist_with: 5_minute_datagroup
-}
-
-explore: ndt_with_datagroup {}
+# #new comment
+# include: "sffd_service_calls.view"
+# include: "municipal_sf_requests.view"
+# include: "neighborhood_zip.view"
+# include: "ndt_with_datagroup.view"
+#
+#
+#
+# # include all the dashboards
+# #include: "*.dashboard.lookml"
+#
+#
+#
+# explore: municipal_sf_requests {
+#
+# }
+#
+# explore: neighborhood_zip {}
+#
+# explore: sffd_service_calls {
+#   persist_with: 5_minute_datagroup
+# }
+#
+# explore: ndt_with_datagroup {}

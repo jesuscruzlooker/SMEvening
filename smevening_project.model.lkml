@@ -6,10 +6,15 @@ connection: "mybqtets"
 
 persist_for: "1 hour"
 
+access_grant: myaccessgrant {
+  allowed_values: ["nonadmin"]
+  user_attribute: access_test
+}
 
 #new comment
 include: "*.view"
 include: "mylkml_db.dashboard.lookml"
+
 
 # include all the dashboards
 #include: "*.dashboard.lookml"
@@ -41,22 +46,18 @@ explore: neighborhood_pd {}
 
 explore: neighborhood_zip {}
 
-explore: sffd_service_calls {
-  persist_for: "1 minutes"
+explore: sffd_service_calls {}
+
+# explore: sffd_service_calls_access {
 #   from: sffd_service_calls
-#   sql_always_where: {% date_start sffd_service_calls_test.date_filter_name %} < {% date_end sffd_service_calls_test.date_filter_name %} ;;
-}
+#   always_filter: {
+#     filters: {
+#       field: battalion
+#       value: "B03"
+#     }
 
-explore: sffd_service_calls_access {
-  from: sffd_service_calls
-  always_filter: {
-    filters: {
-      field: battalion
-      value: "B03"
-    }
-
-  }
-}
+#   }
+# }
 
 
 explore: zipcode_neighborhood_grp {}

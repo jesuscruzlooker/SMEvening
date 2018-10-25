@@ -1,5 +1,11 @@
+
+
 view: sffd_service_calls {
   sql_table_name: sf_thesis.sffd_service_calls;;
+  view_label: "battalion"
+
+
+
 
 #   (SELECT * ,
 #
@@ -50,21 +56,7 @@ view: sffd_service_calls {
 
   }
 
-  dimension: testingcase {
-    sql: {% parameter battalp %}  ;;
-  }
 
-  parameter: battalp {
-    type: string
-    allowed_value: {
-      label: "testing"
-      value: "B08"
-    }
-    allowed_value: {
-      label: "testing"
-      value: "B04"
-    }
-  }
 
   filter: filter_test {
     type: string
@@ -294,13 +286,11 @@ view: sffd_service_calls {
   }
 
   dimension: battalion {
+  #  required_access_grants: [myaccessgrant]
+    label: "battalion"
     type: string
     sql: ${TABLE}.battalion ;;
-    suggest_persist_for: "1 minutes"
-    link: {
-      label: "testinglabel"
-      url: "/dashboards/14"
-    }
+
   }
 
 
