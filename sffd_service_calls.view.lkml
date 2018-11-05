@@ -247,7 +247,9 @@ view: sffd_service_calls {
       week,
       month,
       quarter,
-      year
+      year,
+      hour,
+      hour_of_day
     ]
     sql: ${TABLE}.available_timestamp ;;
     datatype: datetime
