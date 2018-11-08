@@ -15,6 +15,7 @@ access_grant: myaccessgrant {
 include: "*.view"
 include: "mylkml_db.dashboard.lookml"
 include: "testdashboard.dashboard.lookml"
+include: "*.dashboard.lookml"
 
 
 # include all the dashboards
