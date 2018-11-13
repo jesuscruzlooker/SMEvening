@@ -288,10 +288,11 @@ view: sffd_service_calls {
   }
 
   dimension: battalion {
-  #  required_access_grants: [myaccessgrant]
     label: "battalion"
     type: string
-    sql: ${TABLE}.battalion ;;
+    sql: CASE WHEN ${TABLE}.battalion = "B03" or ${TABLE}.battalion = "B04"
+              THEN "{{ _localization['battalion'] }}"
+              ELSE ${TABLE}.battalion END;;
 
   }
 
