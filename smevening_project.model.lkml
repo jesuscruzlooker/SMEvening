@@ -14,7 +14,6 @@ access_grant: myaccessgrant {
 #new comment
 include: "*.view"
 include: "mylkml_db.dashboard.lookml"
-include: "testdashboard.dashboard.lookml"
 include: "*.dashboard.lookml"
 
 
