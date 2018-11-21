@@ -8,7 +8,7 @@ connection: "mybqtets"
 #
 #
 # # #new comment
-# # include: "*.view"
+include: "*sffd_service_calls.view"
 # #
 # #
 # # # include all the dashboards
@@ -44,16 +44,20 @@ connection: "mybqtets"
 # #
 # # explore: sffd_service_calls_edit {}
 # #
-# # explore: sffd_service_calls_access {
-# #   from: sffd_service_calls
-# #   always_filter: {
-# #     filters: {
-# #       field: battalion
-# #       value: "B03"
-# #     }
-# #
-# #   }
-# # }
+explore: sffd_service_calls_access {
+  from: sffd_service_calls
+  always_filter: {
+    filters: {
+      field: battalion
+      value: "B03"
+    }
+}
+}
+
+explore: sffd_service_calls_edit {
+  from: sffd_service_calls
+}
+
 # #
 # #
 # #

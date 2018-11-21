@@ -51,16 +51,16 @@ explore: sffd_service_calls {
   persist_for: "1 minutes"
 }
 
-# explore: sffd_service_calls_access {
-#   from: sffd_service_calls
-#   always_filter: {
-#     filters: {
-#       field: battalion
-#       value: "B03"
-#     }
+explore: sffd_service_calls_access {
+  from: sffd_service_calls
+  always_filter: {
+    filters: {
+      field: battalion
+      value: "B03"
+    }
 
-#   }
-# }
+  }
+}
 
 
 explore: zipcode_neighborhood_grp {}

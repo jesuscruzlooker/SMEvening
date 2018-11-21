@@ -37,7 +37,7 @@ explore: municipal_sf_requests {
 
 }
 
-# explore: neighborhood_zip {}
+ explore: neighborhood_zip {}
 #
 # explore: sffd_service_calls {
 #   persist_with: 5_minute_datagroup
