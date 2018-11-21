@@ -21,10 +21,10 @@ datagroup: 2_hour_datagroup {
 }
 
 # #new comment
-# include: "sffd_service_calls.view"
-# include: "municipal_sf_requests.view"
-# include: "neighborhood_zip.view"
-# include: "ndt_with_datagroup.view"
+include: "sffd_service_calls.view"
+include: "municipal_sf_requests.view"
+include: "neighborhood_zip.view"
+include: "ndt_with_datagroup.view"
 #
 #
 #
@@ -33,10 +33,10 @@ datagroup: 2_hour_datagroup {
 #
 #
 #
-# explore: municipal_sf_requests {
-#
-# }
-#
+explore: municipal_sf_requests {
+
+}
+
 # explore: neighborhood_zip {}
 #
 # explore: sffd_service_calls {
