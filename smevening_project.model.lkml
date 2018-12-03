@@ -20,7 +20,7 @@ include: "*.dashboard.lookml"
 # include all the dashboards
 #include: "*.dashboard.lookml"
 
-
+explore: sfextend {}
 
 explore: admin_view {
     join: testing_date {

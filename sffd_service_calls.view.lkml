@@ -20,6 +20,12 @@ view: sffd_service_calls {
     type: date
   }
 
+  dimension: testting {
+    type: date
+    sql:  ;;
+
+  }
+
   filter: mydate {
     type: date
   }
@@ -288,7 +294,6 @@ view: sffd_service_calls {
   }
 
   dimension: battalion {
-    label: "battalion"
     type: string
     sql: CASE WHEN ${TABLE}.battalion = "B03" or ${TABLE}.battalion = "B04"
               THEN "{{ _localization['battalion'] }}"
@@ -392,6 +397,11 @@ view: sffd_service_calls {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
+    link: {
+      url: "https://www.google.com"
+      label: "mylink"
+    }
+
   }
 
   dimension_group: dispatch_timestamp {
