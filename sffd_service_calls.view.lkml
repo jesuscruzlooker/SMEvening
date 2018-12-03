@@ -2,7 +2,7 @@
 
 view: sffd_service_calls {
   sql_table_name: sf_thesis.sffd_service_calls;;
-  view_label: "battalion"
+#   view_label: "battalion"
 
 
 
