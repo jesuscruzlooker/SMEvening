@@ -295,9 +295,7 @@ view: sffd_service_calls {
 
   dimension: battalion {
     type: string
-    sql: CASE WHEN ${TABLE}.battalion = "B03" or ${TABLE}.battalion = "B04"
-              THEN "{{ _localization['battalion'] }}"
-              ELSE ${TABLE}.battalion END;;
+    sql:${TABLE}.battalion ;;
 
   }
 
