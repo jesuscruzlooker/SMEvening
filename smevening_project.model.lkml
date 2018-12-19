@@ -4,6 +4,12 @@ datagroup: rebuild_pdts {
   sql_trigger: SELECT max(sffd_service_calls.incident_number) FROM sf_thesis.sffd_service_calls ;;
 }
 
+datagroup: etl_refresh_dg {
+  sql_trigger: SELECT max(createdate) from dimuserclient ;;
+  max_cache_age: "25 hours"
+}
+
+
 persist_for: "1 hour"
 
 access_grant: myaccessgrant {
@@ -24,6 +30,7 @@ explore: sfextend {}
 
 explore: admin_view {
     join: testing_date {
+    view_label: "1.Testing Date"
     relationship: one_to_one
     sql_on:
 
