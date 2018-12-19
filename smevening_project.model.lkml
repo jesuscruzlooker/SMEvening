@@ -9,6 +9,10 @@ datagroup: etl_refresh_dg {
   max_cache_age: "25 hours"
 }
 
+datagroup: etl_refresh_dg222 {
+  sql_trigger: SELECT max(createdate) from dimuserclient ;;
+  max_cache_age: "25 hours"
+}
 
 persist_for: "1 hour"
 
